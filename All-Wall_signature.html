@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ALL-WALL Email Signature Form</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <style>
+    body {
+      background: white;
+      font-family: arial, sans-serif;
+    }
+
+    form  {
+      
+      font-size: 14px;
+    }
+
+    label {
+      display: inline-block;
+      padding-right: 10px;
+      color: #1d1d1d;
+      padding-bottom: 3px;
+      min-width: 160px;
+      text-align: right;
+    }
+
+    input {
+         padding: 5px 5px;
+         margin-bottom: 5px;
+         display: inline-block;
+         min-width: 200px;
+         border: 1px solid green;
+         border-radius: 0px;
+         background-color: #fff;
+
+    }
+
+    select {
+      margin-bottom: 5px;
+    }
+    button{
+          align-items: center;
+          color: white;
+          background-color: rgb(40, 173, 40);
+          border: none;
+          border-radius: 2px;
+          padding: 10px;
+          margin: 0 auto;
+          display: block;
+    }
+    .inp_form{
+      background-color: beige;
+      padding: 25px;
+      display: block; 
+      width: 550px;
+      height: 450px;
+      border: 1px solid #000;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="inp_form">
+  <form >
+    <label>Full Name</label> <input name="pw-name" onkeyup="changeText(this)" placeholder="John Smith" type="text"
+      autocomplete="off"><br>
+    <label>Title</label> <input name="pw-title" onkeyup="changeText(this)" placeholder="Store Manager" type="text"
+      autocomplete="off"><br>
+    <label>Street Address</label> <input name="pw-address" onkeyup="changeText(this)" placeholder="1234 Main St"
+      type="text" autocomplete="off"><br>
+    <label>City, State, Zipcode</label> <input name="pw-locations" onkeyup="changeText(this)"
+      placeholder="Anywhere in USA" type="text" autocomplete="off"><br>
+    <label>Store Phone Number</label> <input name="pw-phoneOffice" onInput="this.value = phoneFormat(this.value)"
+      onkeyup="changeText(this)" placeholder="(810) 876-5309" type="tel" autocomplete="off"><br>
+    <label>Fax Number</label> <input name="pw-Fax" onInput="this.value = phoneFormat(this.value)"
+      onkeyup="changeText(this)" placeholder="(123) 456-7890" type="tel" autocomplete="off"><br>
+    <label>Check If No Fax Number</label><input name="pw-Fax" onclick="detacheField1(this)" type="checkbox"
+      autocomplete="off"><br>
+    <label>Email</label> <input name="pw-email" onkeyup="changeTextEmail(this)" placeholder="jsmith@amestools.com"
+      type="text" autocomplete="off"><br>
+  </form>
+
+  <div align="center" style="height: 20px;"></div><button onclick="copyToClipboard()">Click Me to Copy the Signature and Paste vAway</button>
+
+  <p><strong>Notes:</strong>
+    <ul>
+
+      <li>If you copy/paste the signature in Chrome, links and phone numbers will get underlined, use another browser or
+        application</li>
+      <li>Allow browsers: Safari, Opera, Mozilla Firefox, Chrome and Microsoft Edge.</li>
+      <li>If you have any problem, please refresh your browser.</li>
+    </ul>
+  </p>
+  </section>
+  <div style="height: 30px;"></div>
+  <hr>
+
+  <section id="pw-sig">
+    <p style="font-size: 10pt; font-family: arial">
+      <table style="width: 670px" cellspacing=0 cellpadding=0 border=0>
+        <tbody>
+          <tr>
+            <td style="font-size: 10pt; font-family: arial; width: 125px!important; padding-right: 20px;" valign=middle>
+              <img border=0 src="https://i.ibb.co/dGMRPPx/All-wall.jpg" alt="amestools.com"></td>
+            <td
+              style="font-size: 10pt; font-family: arial; width: 500px; padding-left: 20px; border-left: #000000 3px solid; padding-top: 15px;"
+              valign=top>
+              <strong style="font-size: 11pt">
+                <span id="pw-name" style="font-size: 14pt; color: #000000;margin-top: 30px;">John
+                  Smith</span></strong><br>
+
+              <span id="pw-title" style="font-size: 11pt; color: #000000;text-decoration:none;">Store Manager</span><br>
+
+              <span><span id="pw-address" style="color:#000000">1234 Main St.</span> | <span id="pw-locations">Anywhere,
+                  USA 12345</span></span><br>
+
+              P: <span id="pw-phoneOffice" style="color:#000000">(810) 876-5309</span><span id="row1"> | F: <span
+                  id="pw-Fax" style="color:#000000">83040022</span></span> <br>
+
+              E: <a id="pw-email"
+                style="color: rgb(44, 135, 255); font-weight: 500; text-transform: lowercase; text-decoration: underline;">jsmith@amestools.com</a><br><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+  </section>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script type="text/javascript">
+    // TODO: check empty values, http://html-tuts.com/check-if-div-is-empty-html-element-has-children-tags/
+
+
+
+    function copyToClipboard() {
+      var pwsignature = document.getElementById('pw-sig').innerHTML
+      // pwsignature = pwsignature.replace(/<\/?span[^>]*>/g, "");
+      const el = document.createElement('textarea');
+      el.value = pwsignature;
+      document.body.appendChild(el);
+      el.select();
+
+      function listener(e) {
+        e.clipboardData.setData("text/html", pwsignature);
+        e.clipboardData.setData("text/plain", pwsignature);
+        e.preventDefault();
+      }
+      document.addEventListener("copy", listener);
+      document.execCommand('copy');
+      document.removeEventListener("copy", listener);
+      document.body.removeChild(el);
+    }
+
+    function changeText(element) {
+      document.getElementById(element.name).innerHTML = element.value;
+      // console.log(element);
+    }
+
+    function changeTextEmail(element) {
+      document.getElementById(element.name).innerHTML = element.value;
+      document.getElementById(element.name).setAttribute('href', "mailto:" + element.value);
+      // console.log(element);
+    }
+
+    // var = savedElement;
+    function removeField(element) {
+      if (element.checked == true) {
+        jQuery('#' + element.name).parents('tr').css('display', 'none');
+        // jQuery('#' + element.name).parents('tr').remove();
+        // TODO: Save element to variable and remove
+      } else {
+        jQuery('#' + element.name).parents('tr').removeAttr('style');
+        // TODO: restore removed element in same location
+      }
+    }
+
+    var savedElement1, savedElement2, savedElement3;
+
+    function detacheField1(element) {
+      if (element.checked == true) {
+        savedElement1 = $('#' + element.name).parents('span').detach();
+      } else {
+        $('#row1').after(savedElement1);
+      }
+    }
+
+    function detacheField2(element) {
+      if (element.checked == true) {
+        savedElement2 = $('#' + element.name).parents('tr').detach();
+      } else {
+        if ($('#row3').length) {
+          $('#row3').after(savedElement2);
+        } else {
+          $('#row2').after(savedElement2);
+        }
+      }
+    }
+
+    //returns (XXX) XXX-XXXX
+    function phoneFormat(input) {
+      input = input.replace(/\D/g, '');
+      var size = input.length;
+      if (size > 0) {
+        input = "(" + input
+      }
+      if (size > 3) {
+        input = input.slice(0, 4) + ") " + input.slice(4, 11)
+      }
+      if (size > 6) {
+        input = input.slice(0, 9) + "-" + input.slice(9)
+      }
+      return input;
+    }
+  </script>
+</body>
