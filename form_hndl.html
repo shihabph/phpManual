@@ -1,0 +1,52 @@
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="form_style.css">
+			<title>Form Handling</title>
+		</head>
+
+		<body>
+			<!-- Perfectly Executes the form with given input value to show output Successfully. -->
+			<Section class="xprint">
+				<h1 class="hi">
+					User information Form
+				</h1>
+				<form action="form.php" method="post">
+					<table>
+						<tr>
+							<td>
+								Full Name:
+							</td>
+							<td><input type="text" name="name" placeholder="Enter your Full Name" required><br></td>
+						</tr>
+						<tr>
+							<td>Email Address:</td>
+							<td> <input type="text" name="email" placeholder="Your Email" required><br></td>
+						</tr>
+						<tr>
+							<td>Number: </td>
+							<td><input type="tel" name="phone" placeholder="Enter your Phone Number"><br>
+							</td>
+						</tr>
+						<tr>
+							<td>Student ID:</td>
+							<td><input type="tel" name="StID" placeholder="Enter your student ID"></td>
+						</tr>
+						<tr>
+							<td>Gender:</td>
+							<td> <input type="radio" name="gender" value="female">Female
+								<input type="radio" name="gender" value="male">Male</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" class="btn" name="submit" value="Submit"> </td>
+						</tr>
+					</table>
+				</form>
+			</Section>
+		</body>
+
+		</html>

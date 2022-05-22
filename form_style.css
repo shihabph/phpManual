@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.xprint {
+	width: 750px;
+	margin: 0 auto;
+	background-color: thistle;
+	padding: 25px;
+
+}
+
+.hi {
+	text-align: center;
+	padding: 25px;
+	font-weight: 600;
+	letter-spacing: 3px;
+	line-height: 30px;
+}
+
+.xprint form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	padding: 10px;
+	margin: 5px;
+}
+
+input.btn {
+	color: white;
+	background-color: rgb(173, 40, 40);
+	border: none;
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 15px;
+	float: right;
+	margin-top: 10px;
+}
