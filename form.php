@@ -18,4 +18,6 @@
 		print_r($array);
 		echo '</pre>';
 	}
+	$a = 5;
+	$b = 25;
 	?>
