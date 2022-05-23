@@ -1,24 +1,23 @@
 <?php
-
-echo "<h2> Constructor </h2>";
-
-class person
-{
-	public $Feeling; //Declaring value
-	public $Time;
-	public function __construct($a, $b)//Declaring Constructor 
+class Drink{
+	public $Suger, $Milk;
+	function __construct($sgr="No Suger <br>", $mlk="No Milk")
 	{
-		$this->Feeling= $a;
-		$this->Time= $b;
+		$this->Suger=$sgr;
+		$this->Milk=$mlk;
+	}
+
+	function blend()
+	{
+		echo $this->Suger, $this->Milk;
 	}
 	
-	public function PersonEnvironment()
-	{ 
-		echo {$this->Feeling}{$this->Feeling};
-	}
-
 }
+$s1 = new Drink( );
+// $s1->Suger= "2 Tea spoon &";
+// $s1->Milk= "200ml of Milk";
 
-$personOne = new person("Gloomy Sunday, 12.00PM");
-$personOne->PersonEnvironment();
-?>
+$s1->blend()
+
+
+ ?>
